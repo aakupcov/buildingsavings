@@ -1,7 +1,6 @@
 #buildingsavings
-/*.iml
 .idea
 
-#contractor-service
-contractor-service/*.iml
-contractor-service/target/
+#all services
+**/*.iml
+**/target/
