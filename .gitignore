@@ -4,3 +4,4 @@
 
 #contractor-service
 contractor-service/*.iml
+contractor-service/target/
