@@ -1,13 +1,19 @@
 package by.anjeikuptsou.buildingsavings.contract.domain;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "CONTRACT")
@@ -31,6 +37,11 @@ public class Contract {
 
     @Column(name = "BALANCE")
     private BigDecimal balance;
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "CONTRACT_CONTRACTOR", joinColumns = @JoinColumn(name = "CONTRACT_NUMBER"))
+    @Column(name = "CONTRACTOR_NUMBER")
+    private List<String> contractorsNumbers = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -78,5 +89,13 @@ public class Contract {
 
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
+    }
+
+    public List<String> getContractorsNumbers() {
+        return contractorsNumbers;
+    }
+
+    public void setContractorsNumbers(List<String> contractorsNumbers) {
+        this.contractorsNumbers = contractorsNumbers;
     }
 }
