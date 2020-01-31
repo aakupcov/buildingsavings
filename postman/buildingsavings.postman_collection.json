@@ -51,19 +51,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8401/contracts?contractNumber=00044",
+							"raw": "localhost:8401/contracts/00044",
 							"host": [
 								"localhost"
 							],
 							"port": "8401",
 							"path": [
-								"contracts"
-							],
-							"query": [
-								{
-									"key": "contractNumber",
-									"value": "00044"
-								}
+								"contracts",
+								"00044"
 							]
 						}
 					},
@@ -84,6 +79,40 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n\t\"contractNumber\": \"00066\",\r\n\t\"type\": \"M\",\r\n\t\"period\": 11,\r\n\t\"startDate\": \"2019-12-01\",\r\n\t\"balance\": 6000,\r\n\t\"contractorsNumbers\": [\r\n\t\t\"00003\"\r\n\t]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8401/contracts",
+							"host": [
+								"localhost"
+							],
+							"port": "8401",
+							"path": [
+								"contracts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteContract",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contractId\": 4,\r\n    \"contractNumber\": \"00044\",\r\n    \"type\": \"Y\",\r\n    \"period\": 3,\r\n    \"startDate\": \"2019-01-01\",\r\n    \"balance\": 4000,\r\n    \"contractorsNumbers\": [\r\n        \"00004\"\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

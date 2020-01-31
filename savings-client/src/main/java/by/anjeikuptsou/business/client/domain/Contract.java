@@ -2,7 +2,6 @@ package by.anjeikuptsou.business.client.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Contract {
@@ -12,7 +11,7 @@ public class Contract {
     private int period;
     private LocalDate startDate;
     private BigDecimal balance;
-    private List<String> contractorsNumbers = new ArrayList<>();
+    private List<String> contractorsNumbers;
 
     public long getId() {
         return id;
