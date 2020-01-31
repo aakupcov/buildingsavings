@@ -144,7 +144,67 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "localhost:8201/contractors",
+							"host": [
+								"localhost"
+							],
+							"port": "8201",
+							"path": [
+								"contractors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveContractor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"FN6\",\r\n        \"lastName\": \"LN6\",\r\n        \"personalNumber\": \"00006\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8201/contractors",
+							"host": [
+								"localhost"
+							],
+							"port": "8201",
+							"path": [
+								"contractors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getContractorByPersonalNumber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8201/contractors/00003",
+							"host": [
+								"localhost"
+							],
+							"port": "8201",
+							"path": [
+								"contractors",
+								"00003"
+							]
 						}
 					},
 					"response": []

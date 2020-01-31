@@ -5,15 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "CONTRACTOR")
 public class Contractor {
     @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @Column(name = "CONTRACTOR_ID")
+    @SequenceGenerator(name= "CONTRACTOR_SEQUENCE", sequenceName = "CONTRACTOR_SEQUENCE_ID", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="CONTRACTOR_SEQUENCE")
+    private long contractorId;
 
     @Column(name = "FIRST_NAME")
     private String firstName;
@@ -24,12 +26,12 @@ public class Contractor {
     @Column(name = "PERSONAL_NUMBER")
     private String personalNumber;
 
-    public long getId() {
-        return id;
+    public long getContractorId() {
+        return contractorId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setContractorId(long contractorId) {
+        this.contractorId = contractorId;
     }
 
     public String getFirstName() {

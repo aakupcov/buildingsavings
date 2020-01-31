@@ -2,11 +2,9 @@ package by.anjeikuptsou.buildingsavings.contractor.service;
 
 import by.anjeikuptsou.buildingsavings.contractor.domain.Contractor;
 import by.anjeikuptsou.buildingsavings.contractor.repository.ContractorRepository;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -18,10 +16,15 @@ public class ContractorService {
         this.contractorRepository = contractorRepository;
     }
 
-    public List<Contractor> findAll(String personalNumber) {
-        if (StringUtils.isNotEmpty(personalNumber)) {
-            return Collections.singletonList(this.contractorRepository.findByPersonalNumber(personalNumber));
-        }
+    public List<Contractor> findAll() {
         return (List<Contractor>) this.contractorRepository.findAll();
+    }
+
+    public Contractor findByPersonalNumber(String personalNumber) {
+        return this.contractorRepository.findByPersonalNumber(personalNumber);
+    }
+
+    public Contractor saveContractor(Contractor contractorToSave) {
+        return this.contractorRepository.save(contractorToSave);
     }
 }
