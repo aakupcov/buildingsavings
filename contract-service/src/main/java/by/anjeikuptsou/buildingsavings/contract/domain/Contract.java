@@ -39,7 +39,7 @@ public class Contract {
     private BigDecimal balance;
 
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "CONTRACT_CONTRACTOR", joinColumns = @JoinColumn(name = "CONTRACT_NUMBER"))
+    @CollectionTable(name = "CONTRACT_CONTRACTOR", joinColumns = @JoinColumn(name = "ID"))
     @Column(name = "CONTRACTOR_NUMBER")
     private List<String> contractorsNumbers = new ArrayList<>();
 
