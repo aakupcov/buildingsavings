@@ -13,17 +13,16 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "CONTRACT")
 public class Contract {
     @Id
-    @Column(name = "ID")
+    @Column(name = "CONTRACT_ID")
     @SequenceGenerator(name= "CONTRACT_SEQUENCE", sequenceName = "CONTRACT_SEQUENCE_ID", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.AUTO, generator="CONTRACT_SEQUENCE")
-    private long id;
+    private long contractId;
 
     @Column(name = "CONTRACT_NUMBER")
     private String contractNumber;
@@ -41,16 +40,16 @@ public class Contract {
     private BigDecimal balance;
 
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "CONTRACT_CONTRACTOR", joinColumns = @JoinColumn(name = "ID"))
+    @CollectionTable(name = "CONTRACT_CONTRACTOR", joinColumns = @JoinColumn(name = "CONTRACT_ID"))
     @Column(name = "CONTRACTOR_NUMBER")
-    private List<String> contractorsNumbers = new ArrayList<>();
+    private List<String> contractorsNumbers;
 
-    public long getId() {
-        return id;
+    public long getContractId() {
+        return contractId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setContractId(long contractId) {
+        this.contractId = contractId;
     }
 
     public String getContractNumber() {

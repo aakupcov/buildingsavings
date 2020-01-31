@@ -1,5 +1,6 @@
 package by.anjeikuptsou.buildingsavings.contract.controller;
 
+import by.anjeikuptsou.buildingsavings.contract.domain.AssignedContractor;
 import by.anjeikuptsou.buildingsavings.contract.domain.Contract;
 import by.anjeikuptsou.buildingsavings.contract.service.ContractService;
 import io.swagger.annotations.Api;
@@ -34,5 +35,11 @@ public class ContractController {
     @ApiOperation(value = "Creat contract", notes = "Creat contract in the system", nickname = "saveContract")
     public Contract saveContract(@RequestBody Contract contractToSave) {
         return this.contractService.saveContract(contractToSave);
+    }
+
+    @RequestMapping(value = "/contractors", method = RequestMethod.GET)
+    @ApiOperation(value = "Get all contract-contractors", notes = "Get all contract-contractors in the system", nickname = "getAllContractors")
+    public List<AssignedContractor> findAllContractors() {
+        return this.contractService.findAllContractors();
     }
 }

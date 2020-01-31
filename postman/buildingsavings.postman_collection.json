@@ -27,6 +27,25 @@
 					"response": []
 				},
 				{
+					"name": "getAllContract-Contractors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8401/contracts/contractors",
+							"host": [
+								"localhost"
+							],
+							"port": "8401",
+							"path": [
+								"contracts",
+								"contractors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "getContractByContractNumber",
 					"request": {
 						"method": "GET",

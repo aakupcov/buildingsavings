@@ -1,6 +1,8 @@
 package by.anjeikuptsou.buildingsavings.contract.service;
 
+import by.anjeikuptsou.buildingsavings.contract.domain.AssignedContractor;
 import by.anjeikuptsou.buildingsavings.contract.domain.Contract;
+import by.anjeikuptsou.buildingsavings.contract.repository.AssignedContractorRepository;
 import by.anjeikuptsou.buildingsavings.contract.repository.ContractRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +14,13 @@ import java.util.List;
 @Service
 public class ContractService {
     private final ContractRepository contractRepository;
+    private final AssignedContractorRepository assignedContractorRepository;
 
     @Autowired
-    public ContractService(ContractRepository contractRepository) {
+    public ContractService(ContractRepository contractRepository,
+                           AssignedContractorRepository assignedContractorRepository) {
         this.contractRepository = contractRepository;
+        this.assignedContractorRepository = assignedContractorRepository;
     }
 
     public List<Contract> findAll(String contractNumber) {
@@ -27,5 +32,9 @@ public class ContractService {
 
     public Contract saveContract(Contract contractToSave) {
         return this.contractRepository.save(contractToSave);
+    }
+
+    public List<AssignedContractor> findAllContractors() {
+        return (List<AssignedContractor>) this.assignedContractorRepository.findAll();
     }
 }
