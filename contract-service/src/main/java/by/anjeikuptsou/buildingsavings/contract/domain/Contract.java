@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -20,7 +21,8 @@ import java.util.List;
 public class Contract {
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name= "CONTRACT_SEQUENCE", sequenceName = "CONTRACT_SEQUENCE_ID", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="CONTRACT_SEQUENCE")
     private long id;
 
     @Column(name = "CONTRACT_NUMBER")

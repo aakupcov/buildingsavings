@@ -24,4 +24,8 @@ public class ContractService {
         }
         return (List<Contract>) this.contractRepository.findAll();
     }
+
+    public Contract saveContract(Contract contractToSave) {
+        return this.contractRepository.save(contractToSave);
+    }
 }
