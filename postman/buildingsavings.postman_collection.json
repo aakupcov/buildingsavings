@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "16755456-8a6c-4668-9b32-8501fafac2ea",
+		"name": "buildingsavings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "contract",
+			"item": [
+				{
+					"name": "getAllContracts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8401/contracts",
+							"host": [
+								"localhost"
+							],
+							"port": "8401",
+							"path": [
+								"contracts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getContractByContractNumber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8401/contracts?contractNumber=00044",
+							"host": [
+								"localhost"
+							],
+							"port": "8401",
+							"path": [
+								"contracts"
+							],
+							"query": [
+								{
+									"key": "contractNumber",
+									"value": "00044"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveContract",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"contractNumber\": \"00066\",\r\n\t\"type\": \"M\",\r\n\t\"period\": 11,\r\n\t\"startDate\": \"2019-12-01\",\r\n\t\"balance\": 6000,\r\n\t\"contractorsNumbers\": [\r\n\t\t\"00003\"\r\n\t]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8401/contracts",
+							"host": [
+								"localhost"
+							],
+							"port": "8401",
+							"path": [
+								"contracts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "contractor",
+			"item": [
+				{
+					"name": "getAllContractors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
